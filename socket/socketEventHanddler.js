@@ -15,7 +15,7 @@ module.exports = function (socket) {
 
         for(let i=0;i<filenames.length;i++) {
             fs.writeFileSync(`uploads/${filenames[i]}_${uid}`, codes[i]||'');
-            child_process.execSync(`docker cp uploads/${filenames[i]}_${uid} ${uid}:${filenames[i]}`);
+            child_process.execSync(`docker cp uploads/${filenames[i]}_${uid} ${uid}:/workdir/${filenames[i]}`);
             child_process.exec(`rm uploads/${filenames[i]}_${uid}`);
         }
         socket.emit('cp', 'done');
