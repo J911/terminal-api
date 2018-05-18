@@ -1,2 +1,2 @@
 # Terminal-API
-Docker sandbox API
+Docker sandbox API using socket.io
